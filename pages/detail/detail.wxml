@@ -1,0 +1,18 @@
+<!--detail.wxml-->
+<wxs module="dateFr" src="../../utils/filter.wxs"></wxs>
+<view class="detail">
+  <swiper bindchange='changeSwiper'  indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
+    <block wx:for="{{imgUrls}}" wx:key="item">
+      <swiper-item>
+        <image src="{{item}}" class="slide-image" width="355" height="150" />
+      </swiper-item>
+    </block>
+  </swiper>
+  <view class='indCount indimg'>
+      <image src='../../images/u209.png'></image>
+      <text class='descount'>{{currentTab}}/3</text>
+    </view>
+    <view class='pro_detail'>江西正宗赣南脐橙 甜橙子当季新鲜水果榨汁农家果园现摘10斤包邮</view>
+    <view class="weui-media-box__desc">色香味美  皮薄汁多</view>
+    <view class="price">¥ 5.99<text>/斤</text></view>
+</view>

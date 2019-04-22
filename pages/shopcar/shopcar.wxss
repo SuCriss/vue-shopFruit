@@ -1,0 +1,118 @@
+/**shopcar.wxss**/
+.weui-media-box__title{
+  white-space: pre-wrap;
+}
+.weui-media-box__hd_in-appmsg{
+  width: 130px;
+  height: 130px;
+}
+.weui-media-box__desc{
+  color: #009900;
+  margin-top: 5px;
+}
+.price{
+  margin-top: 15px;
+  font-weight: 700;
+  color: #FF3333;
+  font-size: 18px;
+}
+.price text{
+  color:#999999;
+  font-size: 12px;
+}
+.addcar{
+  float: right;
+  margin-right: 15px;
+  width: 20px;
+  height: 20px;
+}
+.count{
+  float: right;
+  margin-right: 15px;
+  display: flex;
+}
+.count view{
+  width: 20px;
+  height: 20px;
+  line-height: 20px;
+  text-align: center;
+}
+.count_dis{
+  border-radius: 50%;
+  border: 1px solid #FF3300;
+}
+.count_num{
+  margin: 0 5px;
+  color: #333;
+  font-size: 12px;
+}
+.count_add{
+  border-radius: 50%;
+  border: 1px solid #FF3300;
+  background: #ff3300;
+  color: #fff;
+}
+.active{
+  display: flex;
+}
+.none{
+  display: none;
+}
+.weui-media-box{
+  padding: 15px 0;
+}
+.weui-cell{
+  padding: 0
+}
+.pro_detail{
+  margin-top: 5px;
+}
+.footer{
+  font-size: 14px;
+  bottom: 0;
+
+  border-top: 1px solid #666666;
+}
+checkbox-group{
+  float: left;
+  margin-top: 5px;
+  font-size: 18px;
+}
+.pro_detail{
+  display: inline-block;
+  margin-left: 30px;
+}
+.toMoney{
+  color: #ff3300;
+  font-weight: 400;
+}
+
+/* 左滑删除 */
+.order-item{
+  width: 100%;
+  display: flex;
+  position: relative;
+}
+
+.remove{  
+  width: 160rpx;  
+  height: 100%;  
+  background-color: red; 
+  color: white; 
+  position: absolute;  
+  top: 0;  
+  right: -160rpx;  
+  display: flex;  
+  justify-content: center;  
+  align-items: center;  
+}
+.giveMon{
+  height: 100%;
+  float:right;
+}
+.giveMon button{
+  border-radius: 0;
+  width: 100px;
+  background: linear-gradient(90deg, rgba(255, 102, 0, 1) 0%, rgba(255, 102, 0, 1) 0%, rgba(255, 51, 0, 1) 100%, rgba(255, 51, 0, 1) 100%);
+  height: 100%;
+}

@@ -1,0 +1,72 @@
+<!--shopcar.wxml-->
+<wxs module="dateFr" src="../../utils/filter.wxs"></wxs>
+<view class="page">
+  <view class="page__bd">
+    <view class="weui-panel weui-panel_access">
+      <view class="weui-panel__bd">
+        <scroll-view scroll-y="{{isScroll}}" style='height:{{windowHeight}}px'>
+          <block wx:for="{{carList}}" wx:key="{{item}}">
+            <view data-index='{{index}}' class="order-item" bindtouchstart="drawStart" bindtouchmove="drawMove" bindtouchend="drawEnd" style="right:{{item.right}}rpx">
+              <view class="content">
+                <view class="weui-media-box weui-media-box_appmsg" hover-class="weui-cell_active">
+                  <checkbox-group data-id="{{index}}" bindchange="checkboxChange">
+                    <label class="weui-cell weui-check__label" wx:key="value">
+                      <checkbox class="weui-check" checked="{{item.checked}}" />
+
+                      <view class="weui-cell__hd weui-check__hd_in-checkbox">
+                        <icon class="weui-icon-checkbox_circle" type="circle" size="23" wx:if="{{!item.checked}}"></icon>
+                        <icon class="weui-icon-checkbox_success" type="success" size="23" wx:if="{{item.checked}}"></icon>
+                      </view>
+                    </label>
+                  </checkbox-group>
+                  <view class="weui-media-box__hd weui-media-box__hd_in-appmsg">
+                    <image class="weui-media-box__thumb" src="{{item.icon60}}" />
+                  </view>
+                  <view class="weui-media-box__bd weui-media-box__bd_in-appmsg">
+                    <view class="weui-media-box__title">{{item.title1}}</view>
+                    <view class="weui-media-box__desc">{{item.intro1}}</view>
+                    <view class="price">{{dateFr.getMoney(item.price)}}
+                      <text>/斤</text>
+                      <view class='count'>
+                        <view data-id="{{index}}" data-role="dis" bindtap='num_count' class='count_dis'>-</view>
+                        <view class='count_num'>{{item.num}}</view>
+                        <view data-id="{{index}}" data-role="add" bindtap='num_count' class='count_add'>+</view>
+                      </view>
+                    </view>
+                  </view>
+                </view>
+              </view>
+              <view class="remove" data-index="{{index}}" bindtap="delItem">删除 </view>
+            </view>
+          </block>
+        </scroll-view>
+      </view>
+    </view>
+  </view>
+  <view class="footer weui-footer_fixed-bottom">
+    <view class='proList'>
+      <checkbox-group bindchange="selectAll">
+        <label class="weui-cell weui-check__label">
+          <checkbox class="weui-check" checked="{{selected}}" />
+          <view class="weui-cell__hd weui-check__hd_in-checkbox">
+            <icon class="weui-icon-checkbox_circle" type="circle" size="23" wx:if="{{!selected}}"></icon>
+            <icon class="weui-icon-checkbox_success" type="success" size="23" wx:if="{{selected}}"></icon>
+          </view>
+          <view class="weui-cell__bd">
+            <view>全选</view>
+          </view>
+        </label>
+      </checkbox-group>
+      <view class='pro_detail'>
+        <view>合计
+          <text class='toMoney'>{{dateFr.getMoney(totalMoney)}}</text>
+        </view>
+        <view>包装运费 ¥10</view>
+
+      </view>
+      <view class="giveMon">
+        <button class="weui-btn mini-btn" type="warn" size="normal">结算</button>
+      </view>
+    </view>
+  </view>
+</view>

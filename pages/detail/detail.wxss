@@ -1,0 +1,57 @@
+swiper {
+  height:450px;
+  position: relative;
+}
+
+swiper-item {
+  width: 100%;
+  height: 100%;
+}
+
+swiper-item image {
+  width: 100%;
+  height: 100%;
+}
+
+.descount {
+  position: absolute;
+  right: 15px;
+  color: #fff;
+  font-size: 14px;
+  text-align: center;
+  bottom: 15px;
+}
+
+.indCount {
+  width: 50px;
+  z-index: 1000;
+  height: 50px;
+  position: fixed;
+  right: 15px;
+  text-align: center;
+  top: 380px;
+}
+.indCount image{
+  width: 100%;
+  height: 100%;
+}
+.pro_detail{
+  margin: 8px;
+  word-break: break-all;
+  font-size: 18px;
+}
+.weui-media-box__desc{
+  color: #009900;
+  font-size: 16px;
+  margin: 8px;
+}
+.price{
+  margin: 8px;
+  font-weight: 700;
+  color: #FF3333;
+  font-size: 18px;
+}
+.price text{
+  color:#999999;
+  font-size: 12px;
+}

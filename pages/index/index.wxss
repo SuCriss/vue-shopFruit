@@ -1,0 +1,60 @@
+/**index.wxss**/
+.weui-media-box__title{
+  white-space: pre-wrap;
+}
+.weui-media-box__hd_in-appmsg{
+  width: 130px;
+  height: 130px;
+}
+.weui-media-box__desc{
+  color: #009900;
+  margin-top: 5px;
+}
+.price{
+  margin-top: 15px;
+  font-weight: 700;
+  color: #FF3333;
+  font-size: 18px;
+}
+.price text{
+  color:#999999;
+  font-size: 12px;
+}
+.addcar{
+  float: right;
+  margin-right: 15px;
+  width: 20px;
+  height: 20px;
+}
+.count{
+  float: right;
+  margin-right: 15px;
+  display: flex;
+}
+.count view{
+  width: 20px;
+  height: 20px;
+  line-height: 20px;
+  text-align: center;
+}
+.count_dis{
+  border-radius: 50%;
+  border: 1px solid #FF3300;
+}
+.count_num{
+  margin: 0 5px;
+  color: #333;
+  font-size: 12px;
+}
+.count_add{
+  border-radius: 50%;
+  border: 1px solid #FF3300;
+  background: #ff3300;
+  color: #fff;
+}
+.active{
+  display: flex;
+}
+.none{
+  display: none;
+}
