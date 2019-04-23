@@ -21,15 +21,24 @@ var DateFr = {
         d: d
       };
   },
+
   formatMoney:function(money){
     console.log(money)
-    if(!money) return '';
+    if(money === '') return '';
     money = (money / 100).toFixed(2);
-    return "¥" + money
-  }
+    return "¥ " + money
+  },
+
+  formatPhone:function(phone){
+    if (!phone) return '';
+    phone = phone.toString();
+    phone = phone.replace(phone.substring(3, 8), '*****');
+    return phone;
+  },
 }
 
 module.exports = {
   getDate: DateFr.getDate,
-  getMoney:DateFr.formatMoney
+  getMoney:DateFr.formatMoney,
+  getPhone:DateFr.formatPhone
 }

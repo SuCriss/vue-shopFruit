@@ -1,4 +1,7 @@
-/**shopcar.wxss**/
+/**index.wxss**/
+.weui-media-box {
+  position:inherit;
+}
 .weui-media-box__title{
   white-space: pre-wrap;
 }
@@ -20,12 +23,6 @@
   color:#999999;
   font-size: 12px;
 }
-.addcar{
-  float: right;
-  margin-right: 15px;
-  width: 20px;
-  height: 20px;
-}
 .count{
   float: right;
   margin-right: 15px;
@@ -37,20 +34,10 @@
   line-height: 20px;
   text-align: center;
 }
-.count_dis{
-  border-radius: 50%;
-  border: 1px solid #FF3300;
-}
 .count_num{
   margin: 0 5px;
   color: #333;
-  font-size: 12px;
-}
-.count_add{
-  border-radius: 50%;
-  border: 1px solid #FF3300;
-  background: #ff3300;
-  color: #fff;
+  font-size: 14px;
 }
 .active{
   display: flex;
@@ -58,52 +45,68 @@
 .none{
   display: none;
 }
-.weui-media-box{
-  padding: 15px 0;
+.addr{
+  font-size: 16px;
+  color: #666666;
+  padding: 10px 15px;
 }
-.weui-cell{
-  padding: 0
+.addr .name{
+  color: #000;
+  font-weight: 400;
 }
-.pro_detail{
+.pro_name{
+  padding: 10px 15px;
+  font-weight: 400;
+}
+.addr .phone{
+  margin-left: 100px;
+}
+.cust_addr{
   margin-top: 5px;
 }
-.footer{
+.weui-cell__ft{
+  float: right;
+  margin-top: -50rpx;
+  margin-right: 15px;
+}
+.weui-cell__ft_in-access:after{
+  height: 12px;
+  width: 12px;
+}
+.mode{
+  padding: 15px;
+  font-size: 16px;
+}
+.mode_name{
+  float: right;
+  margin-right: 15px;
+}
+.weui-cells__title{
+  font-size: 16px;
+  color: #000;
+  font-weight: 400;
+}
+.weui-textarea{
   font-size: 14px;
-  bottom: 0;
-  border-top: 1px solid #666666;
-}
-checkbox-group{
-  float: left;
-  margin-top: 5px;
-  font-size: 18px;
 }
 .pro_detail{
   display: inline-block;
   margin-left: 30px;
+  font-weight: 400;
+  font-size: 16px;
+  margin-top: 8px;
+}
+.money{
+  color: #666666;
 }
 .toMoney{
   color: #ff3300;
   font-weight: 400;
 }
-
-/* 左滑删除 */
-.order-item{
-  width: 100%;
-  display: flex;
-  position: relative;
-}
-
-.remove{  
-  width: 160rpx;  
-  height: 100%;  
-  background-color: red; 
-  color: white; 
-  position: absolute;  
-  top: 0;  
-  right: -160rpx;  
-  display: flex;  
-  justify-content: center;  
-  align-items: center;  
+.footer{
+  font-size: 14px;
+  bottom: 0;
+  border-top: 1px solid #666666;
 }
 .giveMon{
   height: 100%;

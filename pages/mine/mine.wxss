@@ -1,8 +1,6 @@
-.log-list {
-  display: flex;
-  flex-direction: column;
-  padding: 40rpx;
-}
-.log-item {
-  margin: 10rpx;
+.mine{
+  text-align: center;
+  width: 100%;
+  margin: 50% auto;
+  font-size: 18px;
 }

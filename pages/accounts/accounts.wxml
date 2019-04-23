@@ -1,0 +1,62 @@
+<wxs module="dateFr" src="../../utils/filter.wxs"></wxs>
+<view class="page">
+  <scroll-view scroll-y="{{isScroll}}" style='height:{{windowHeight -80}}px'>
+    <view class='addr' bindtap='addrManagement'>
+      <view class='cust'>
+        <text class='name'>{{buyer.name}}</text>
+        <text class='phone'>{{dateFr.getPhone(buyer.phone)}}</text>
+      </view>
+      <view class='cust_addr'>{{buyer.addr}}</view>
+      <view class="weui-cell__ft weui-cell__ft_in-access"></view>
+    </view>
+    <view class="page__bd">
+      <view class="weui-panel weui-panel_access">
+        <view class="weui-panel__bd">
+          <view class='pro_name'>优鲜果</view>
+          <view wx:for="{{account_items}}" wx:key="{{item}}" class="weui-media-box weui-media-box_appmsg" bindtap='navigateToDetail' data-item="{{item}}">
+            <view class="weui-media-box__hd weui-media-box__hd_in-appmsg">
+              <image class="weui-media-box__thumb" src="{{item.icon60}}" />
+            </view>
+            <view class="weui-media-box__bd weui-media-box__bd_in-appmsg">
+              <view class="weui-media-box__title">{{item.title1}}</view>
+              <view class="weui-media-box__desc">{{item.intro1}}</view>
+              <view class="price">{{dateFr.getMoney(item.price)}}
+                <text>/斤</text>
+                <view class='count'>
+                  <view class='count_num'>x{{item.num}}</view>
+                </view>
+              </view>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+    <view class='mode'>
+      <text class='lab'>配送方式</text>
+      <text class='mode_name'>快递 <text class='money'>¥ 10.00</text></text>
+    </view>
+    <view class='message'>
+      <view class="weui-cells__title">买家留言:</view>
+      <view class="weui-cells weui-cells_after-title">
+        <view class="weui-cell">
+          <view class="weui-cell__bd">
+            <textarea class="weui-textarea" placeholder="选填，对本次交易的说明，（建议填写）" style="height: 4.3em" />
+          </view>
+        </view>
+      </view>
+    </view>
+  </scroll-view>
+  <view class="footer weui-footer_fixed-bottom">
+    <view class='proList'>
+      <view class='pro_detail'>
+        <view class='counts_pro'>共计{{count}}件商品</view>
+        <view>合计
+          <text class='toMoney'>{{dateFr.getMoney(total_price)}}</text>
+        </view>
+      </view>
+      <view class="giveMon">
+        <button class="weui-btn mini-btn" bindtap='submitOrder' type="warn" size="normal">提交订单</button>
+      </view>
+    </view>
+  </view>
+</view>

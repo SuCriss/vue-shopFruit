@@ -1,0 +1,31 @@
+<!--buyer.wxml-->
+<wxs module="dateFr" src="../../utils/filter.wxs"></wxs>
+<view class='buyer'>
+  <view class='info'>
+    <view class="weui-cells weui-cells_after-title">
+      <radio-group bindchange="radioChange">
+        <label class="weui-cell weui-check__label" wx:for="{{buyer_infos}}" wx:key="value">
+          <view class="weui-cell__ft weui-cell__ft_in-radio" wx:if="{{item.checked}}">
+            <icon class="weui-icon-radio" type="success" size="16"></icon>
+          </view>
+          <radio class="weui-check" value="{{index}}" checked="{{item.checked}}" />
+          <view class="weui-cell__bd">
+            <view class='cust'>
+              <text class='name'>{{item.name}}</text>
+              <text class='phone'>{{dateFr.getPhone(item.phone)}}</text>
+            </view>
+            <view class='cust_addr'>{{item.addr}}</view>
+            <view class='icons_img'>
+              <image src='../../images/u521.png'></image>
+            </view>
+          </view>
+        </label>
+      </radio-group>
+    </view>
+  </view>
+  <view class='add_buyer'>
+    <view class="page__bd page__bd_spacing">
+      <button bindtap='addNewAddr' class="weui-btn" type="primary"> + 新建收货地址</button>
+    </view>
+  </view>
+</view>

@@ -1,18 +1,42 @@
 <!--detail.wxml-->
 <wxs module="dateFr" src="../../utils/filter.wxs"></wxs>
 <view class="detail">
-  <swiper bindchange='changeSwiper'  indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
-    <block wx:for="{{imgUrls}}" wx:key="item">
-      <swiper-item>
-        <image src="{{item}}" class="slide-image" width="355" height="150" />
-      </swiper-item>
-    </block>
-  </swiper>
-  <view class='indCount indimg'>
+  <scroll-view scroll-y style="height: 92%;">
+  <view class='pro_swiper'>
+   <swiper bindchange='changeSwiper' indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
+      <block wx:for="{{imgUrls}}" wx:key="item">
+        <swiper-item>
+          <image src="{{item}}" class="slide-image" width="355" height="150" />
+        </swiper-item>
+      </block>
+    </swiper>
+   <view class='indCount indimg'>
       <image src='../../images/u209.png'></image>
       <text class='descount'>{{currentTab}}/3</text>
     </view>
+  </view>
     <view class='pro_detail'>江西正宗赣南脐橙 甜橙子当季新鲜水果榨汁农家果园现摘10斤包邮</view>
-    <view class="weui-media-box__desc">色香味美  皮薄汁多</view>
-    <view class="price">¥ 5.99<text>/斤</text></view>
+    <view class="weui-media-box__desc">色香味美 皮薄汁多</view>
+    <view class="price">¥ 5.99
+      <text>/斤</text>
+    </view>
+    <view class='pro_desc'>
+      <view class='norms'>规格</view>
+      <view class='pro_weight pro'>重量：{{pro_detail.pro_weight}}</view>
+      <view class='pro_pack pro'>包装：{{pro_detail.pro_pack}}</view>
+      <view class='pro_area pro'>商品产地：{{pro_detail.pro_area}}</view>
+      <view class='pro_img'>
+        <image src='{{pro_detail.pro_img}}'></image>
+      </view>
+    </view>
+    <view class="footer weui-footer_fixed-bottom">
+      <view class='car_desc' bindtap='goToShopCar'>
+        <image src='../../images/u148.png'></image>
+        <view class='quantity' wx:if="{{count}}">{{count}}</view>
+      </view>
+      <view class="add_car">
+        <button bindtap='addCar' class="weui-btn mini-btn" type="warn" size="normal">加入购物车</button>
+      </view>
+    </view>
+  </scroll-view>
 </view>

@@ -4,13 +4,13 @@
   <view class="page__bd">
     <view class="weui-panel weui-panel_access">
       <view class="weui-panel__bd">
-        <scroll-view scroll-y="{{isScroll}}" style='height:{{windowHeight}}px'>
+        <scroll-view scroll-y="{{isScroll}}" style='height:{{windowHeight -50}}px'>
           <block wx:for="{{carList}}" wx:key="{{item}}">
-            <view data-index='{{index}}' class="order-item" bindtouchstart="drawStart" bindtouchmove="drawMove" bindtouchend="drawEnd" style="right:{{item.right}}rpx">
+            <view data-index="{{index}}" data-checked="{{item.checked}}" data-id='{{index}}'bindtap='checkboxChange' class="order-item" bindtouchstart="drawStart" bindtouchmove="drawMove" bindtouchend="drawEnd" style="right:{{item.right}}rpx">
               <view class="content">
                 <view class="weui-media-box weui-media-box_appmsg" hover-class="weui-cell_active">
-                  <checkbox-group data-id="{{index}}" bindchange="checkboxChange">
-                    <label class="weui-cell weui-check__label" wx:key="value">
+                  <checkbox-group data-id="{{index}}">
+                    <label class="weui-cell weui-check__label">
                       <checkbox class="weui-check" checked="{{item.checked}}" />
 
                       <view class="weui-cell__hd weui-check__hd_in-checkbox">
@@ -28,9 +28,9 @@
                     <view class="price">{{dateFr.getMoney(item.price)}}
                       <text>/斤</text>
                       <view class='count'>
-                        <view data-id="{{index}}" data-role="dis" bindtap='num_count' class='count_dis'>-</view>
+                        <view data-id="{{index}}" data-role="dis" catchtap='num_count' class='count_dis'>-</view>
                         <view class='count_num'>{{item.num}}</view>
-                        <view data-id="{{index}}" data-role="add" bindtap='num_count' class='count_add'>+</view>
+                        <view data-id="{{index}}" data-role="add" catchtap='num_count' class='count_add'>+</view>
                       </view>
                     </view>
                   </view>
@@ -45,7 +45,7 @@
   </view>
   <view class="footer weui-footer_fixed-bottom">
     <view class='proList'>
-      <checkbox-group bindchange="selectAll">
+      <checkbox-group bindchange="selectAll" wx:if="{{carList.length>1}}">
         <label class="weui-cell weui-check__label">
           <checkbox class="weui-check" checked="{{selected}}" />
           <view class="weui-cell__hd weui-check__hd_in-checkbox">
@@ -65,7 +65,7 @@
 
       </view>
       <view class="giveMon">
-        <button class="weui-btn mini-btn" type="warn" size="normal">结算</button>
+        <button class="weui-btn mini-btn" bindtap='settle_accounts' type="warn" size="normal">去结算({{len}})</button>
       </view>
     </view>
   </view>

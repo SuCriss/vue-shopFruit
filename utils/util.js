@@ -14,7 +14,6 @@ const formatNumber = n => {
   return n[1] ? n : '0' + n
 }
 
-
 module.exports = {
   formatTime: formatTime
 }

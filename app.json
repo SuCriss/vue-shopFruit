@@ -3,7 +3,10 @@
     "pages/index/index",
     "pages/shopcar/shopcar",
     "pages/mine/mine",
-    "pages/detail/detail"
+    "pages/detail/detail",
+    "pages/accounts/accounts",
+    "pages/buyer/buyer",
+    "pages/newAddr/newAddr"
   ],
   "window":{
     "backgroundTextStyle":"light",

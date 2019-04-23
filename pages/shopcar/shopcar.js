@@ -8,10 +8,11 @@ Page({
     delBtnWidth: 160,
     isScroll: true,
     startX: 0,
-    selected: false,
+    len:0,
+    selected: true,
     windowHeight: 0,
     totalMoney: 0,
-    checked: true,
+    checked: false,
     checkboxItems: [{
       value: '0',
       checked: true
@@ -35,15 +36,19 @@ Page({
           console.log(res.data);
           let data = res.data;
           let payMoney = 0;
-          for (var i in data) {
-            payMoney += (data[i].num * data[i].price);
-          }
-          console.log('合计' + payMoney)
+          // for (var i in data) {
+          //   payMoney += (data[i].num * data[i].price);
+          // }
+          // console.log('合计' + payMoney)
           _this.setData({
             carList: data,
             count: data.length,
             totalMoney: payMoney
-          })
+          });
+          wx.setTabBarBadge({
+            index: 1,
+            text: data.length.toString(),
+          });
           console.log(_this.data.carList);
         }
       })
@@ -90,14 +95,44 @@ Page({
   checkboxChange: function(e) {
     console.log('checkbox发生change事件，携带value值为：', e);
     let index = e.currentTarget.dataset.id;
-    let checked = !this.data.checked;
+    let checked = !e.currentTarget.dataset.checked;
+    let payMoney = 0;
+    let flag = false;
+    this.data.carList.slice(index, 1);
     let choseChange = "carList[" + index + "].checked";
+    if (!checked) {
+      this.data.len -=1;
+      if (this.data.selected){
+        this.data.selected = false;
+      }
+    }else{
+      this.data.len+=1;
+    }
     this.setData({
       [choseChange]: checked,
-      checked: checked
+      checked:checked,
+      selected: this.data.selected
+    });
+    let data = this.data.carList;
+    console.log(data);
+    for (var i in data) {
+      if (data[i].checked) {
+        payMoney += Math.abs((data[i].num * data[i].price));
+      }else{
+        flag = true;
+      }
+    }
+    if(!flag){
+      this.data.selected = true;
+    }
+    this.setData({
+      totalMoney: payMoney,
+      len: this.data.len,
+      selected: this.data.selected
     })
   },
 
+  //左滑删除按钮--滑动开始
   drawStart: function(e) {
     let _this = this;
     console.log("drawStart");
@@ -113,6 +148,8 @@ Page({
     })
 
   },
+
+  //左滑删除按钮--滑动中
   drawMove: function(e) {
     console.log("drawMove");
     let _this = this;
@@ -137,6 +174,8 @@ Page({
       })
     }
   },
+
+  //左滑删除按钮--滑动结束
   drawEnd: function(e) {
     console.log("drawEnd");
     let _this = this;
@@ -155,18 +194,25 @@ Page({
       })
     }
   },
-  //删除
+
+  //删除按钮事件
   delItem: function(e) {
     let _this = this;
     console.log(_this.data.carList);
     console.log('删除按钮');
     console.log(e);
     let index = e.currentTarget.dataset.index;
+    let payMoney = 0;
     _this.data.carList.splice(index, 1);
-    console.log(_this.data.carList);
-    let len = _this.data.carList.length.toString();
+    var data = _this.data.carList;
+    console.log(data);
+    let len = data.length.toString();
+    for (var i in data) {
+      payMoney += (data[i].num * data[i].price);
+    }
     _this.setData({
-      carList: _this.data.carList
+      carList: _this.data.carList,
+      totalMoney: payMoney
     });
     wx.setStorage({
       key: 'CartData',
@@ -185,23 +231,63 @@ Page({
 
   },
 
-  //全选
+  //全选按钮
   selectAll(e) {
     let _this = this;
+    let payMoney = 0;
     _this.data.selected = !_this.data.selected;
-    var data = _this.data.carList;
+    let data = _this.data.carList;
+    let len = _this.data.selected?data.length:0;
     for (var i in data) {
       if (_this.data.selected) {
         data[i].checked = true;
+        _this.data.checked = true;
+        payMoney += (data[i].num * data[i].price);
       } else {
+        _this.data.checked = true;
         data[i].checked = false;
       }
     }
     _this.setData({
       selected: _this.data.selected,
-      carList: _this.data.carList
+      carList: _this.data.carList,
+      totalMoney: payMoney,
+      len:len,
+      checked: _this.data.checked
     })
   },
+
+
+  //结算按钮
+  settle_accounts() {
+    let list = this.data.carList;
+    let checked_flag =false;
+    for(var i in list){
+      if(list[i].checked){
+        checked_flag = true;
+      }
+    }
+    if(checked_flag){
+      let data = JSON.stringify(list);
+      console.log(data);
+      wx.navigateTo({
+        url: "/pages/accounts/accounts?account_items=" + data,
+        success: function (res) { },
+        fail: function (res) { },
+        complete: function (res) { },
+      })
+    }else{
+      wx.showToast({
+        title: '您还没有选择商品哦',
+        icon: 'none',
+        duration: 3000
+      })
+    }
+  },
+
+  /**
+   * 生命周期函数--监听页面加载
+   */
   onLoad: function() {
 
   },
@@ -214,7 +300,10 @@ Page({
       success(res) {
         let winHeight = res.windowHeight;
         _this.setData({
-          windowHeight: winHeight
+          windowHeight: winHeight,
+          selected: false,
+          len:0,
+          checked:false,
         });
         console.log(res.windowHeight)
       }

@@ -1,5 +1,9 @@
+.detail {
+  height: 100vh;
+}
+
 swiper {
-  height:450px;
+  height: 700rpx;
   position: relative;
 }
 
@@ -21,37 +25,113 @@ swiper-item image {
   text-align: center;
   bottom: 15px;
 }
-
+.pro_swiper{
+  position: relative
+}
 .indCount {
   width: 50px;
   z-index: 1000;
   height: 50px;
-  position: fixed;
+  position: absolute;
   right: 15px;
   text-align: center;
-  top: 380px;
+  top: 580rpx;
 }
-.indCount image{
+
+.indCount image {
   width: 100%;
   height: 100%;
 }
-.pro_detail{
+
+.pro_detail {
   margin: 8px;
   word-break: break-all;
   font-size: 18px;
 }
-.weui-media-box__desc{
-  color: #009900;
+.weui-media-box__desc {
+  color: #090;
   font-size: 16px;
   margin: 8px;
 }
-.price{
+
+.price {
   margin: 8px;
   font-weight: 700;
-  color: #FF3333;
+  color: #f33;
   font-size: 18px;
 }
-.price text{
-  color:#999999;
+
+.price text {
+  color: #999;
   font-size: 12px;
+}
+
+.footer {
+  font-size: 14px;
+  bottom: 0;
+  height: 100rpx;
+  text-align: center;
+  border-top: 1px solid #666;
+}
+
+.car_desc {
+  position: relative;
+  height: 70rpx;
+  float: left;
+  width: 70rpx;
+  margin-top: 8px;
+}
+
+.car_desc image {
+  height: 100%;
+  margin: 0 35rpx;
+  width: 100%;
+}
+
+.add_car {
+  height: 100%;
+  width: 80%;
+  float: right;
+}
+
+.add_car button {
+  border-radius: 0;
+  width: 100%;
+  background: linear-gradient(90deg, rgba(255, 102, 0, 1) 0%, rgba(255, 102, 0, 1) 0%, rgba(255, 51, 0, 1) 100%, rgba(255, 51, 0, 1) 100%);
+  height: 100%;
+}
+
+.quantity {
+  position: absolute;
+  left: 80rpx;
+  top: -5rpx;
+  width: 30rpx;
+  line-height: 30rpx;
+  text-align: center;
+  height: 30rpx;
+  border: 1px solid rgba(255, 51, 0, 1);
+  background: rgba(255, 51, 0, 1);
+  color: #fff;
+  border-radius: 50%;
+}
+.norms{
+  font-weight: 400;
+  font-size: 18px;
+  padding: 10px;
+  margin-top: 15px;
+  border-top: 1px solid #cccccc;
+  margin-bottom: 15px;
+}
+.pro{
+  color: #666666;
+  padding: 10px;
+  font-size: 16px;
+}
+.pro_img{
+  width: 100%;
+  height: 600rpx;
+}
+.pro_img image{
+  width: 100%;
+  height: 100%;
 }

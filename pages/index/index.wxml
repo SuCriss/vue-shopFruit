@@ -4,7 +4,7 @@
   <view class="page__bd">
     <view class="weui-panel weui-panel_access">
       <view class="weui-panel__bd">
-        <navigator url="/pages/detail/detail" hover-class="weui-cell_active" wx:for="{{PRODUCTS}}" wx:key="{{index}}" class="weui-media-box weui-media-box_appmsg" hover-class="weui-cell_active">
+        <view wx:for="{{PRODUCTS}}" wx:key="{{item}}" class="weui-media-box weui-media-box_appmsg" bindtap='navigateToDetail' data-item="{{item}}">
           <view class="weui-media-box__hd weui-media-box__hd_in-appmsg">
             <image class="weui-media-box__thumb" src="{{item.icon60}}" />
           </view>
@@ -13,7 +13,7 @@
             <view class="weui-media-box__desc">{{item.intro1}}</view>
             <view class="price">{{dateFr.getMoney(item.price)}}
               <text>/斤</text>
-              <image id="{{index}}" data-index="{{index}}" wx:if="{{!item.num}}" class='addcar' src="{{item.car}}" bindtap="addtocar"></image>
+              <image id="{{index}}" data-index="{{index}}" wx:if="{{!item.num}}" class='addcar' src="{{item.car}}" catchtap="addtocar"></image>
               <view wx:else class='count'>
                 <view data-id="{{index}}" data-role="dis" bindtap='num_count' class='count_dis'>-</view>
                 <view class='count_num'>{{item.num}}</view>
@@ -21,8 +21,8 @@
               </view>
             </view>
           </view>
-      </navigator>
+        </view>
+      </view>
     </view>
   </view>
-</view>
 </view>
