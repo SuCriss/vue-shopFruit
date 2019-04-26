@@ -28,6 +28,10 @@ Page({
   },
 
   submitOrder(){
+    wx.setStorage({
+      key: 'orderData',
+      data: this.data.account_items,
+    })
     wx.showToast({
       title: '订单提交成功',
       icon:"success",
@@ -59,6 +63,14 @@ Page({
         });
         console.log(res.windowHeight)
       }
+    })
+  },
+  onHide:function(){
+    let data = [];
+    data.push(this.data.buyer);
+    wx.setStorage({
+      key: 'buyerData',
+      data: data,
     })
   }
 })

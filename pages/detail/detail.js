@@ -49,6 +49,7 @@ Page({
 
   getProData(options) {
     let detail_item = JSON.parse(options.detail_item);
+    console.log(detail_item)
     this.setData({
       imgUrls: [
         '../../images/u188.jpg',
@@ -70,6 +71,7 @@ Page({
     })
   },
   onLoad: function(options) {
+    console.log(options)
     this.getProData(options)
   }
 })

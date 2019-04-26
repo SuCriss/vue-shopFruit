@@ -46,8 +46,7 @@ Page({
     carList[index] = Object.assign(carList[index], obj)
     addCarData.push(carList[index])
     var value = wx.getStorageSync('CartData');
-    console.log(value.concat(addCarData));
-    if(value!=0 || value.length){
+    if(value!=0 || value.length>0){
       wx.setStorage({
         key: 'CartData',
         data: value.concat(addCarData)

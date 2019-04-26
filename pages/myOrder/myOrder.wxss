@@ -1,0 +1,115 @@
+/**index.wxss**/
+.weui-media-box {
+  position:inherit;
+}
+.weui-media-box__title{
+  white-space: pre-wrap;
+}
+.weui-media-box__hd_in-appmsg{
+  width: 130px;
+  height: 130px;
+}
+.weui-media-box__desc{
+  color: #009900;
+  margin-top: 5px;
+}
+.price{
+  margin-top: 15px;
+  font-weight: 700;
+  color: #FF3333;
+  font-size: 18px;
+}
+.price text{
+  color:#999999;
+  font-size: 12px;
+}
+.count{
+  float: right;
+  margin-right: 15px;
+  display: flex;
+}
+.count view{
+  width: 20px;
+  height: 20px;
+  line-height: 20px;
+  text-align: center;
+}
+.count_num{
+  margin: 0 5px;
+  color: #333;
+  font-size: 14px;
+}
+.active{
+  display: flex;
+}
+.none{
+  display: none;
+}
+.addr{
+  font-size: 16px;
+  color: #666666;
+  padding: 10px 15px;
+}
+.addr .name{
+  color: #000;
+  font-weight: 400;
+}
+.pro_name{
+  padding: 10px 15px;
+  font-weight: 400;
+}
+.addr .phone{
+  margin-left: 100px;
+}
+.cust_addr{
+  margin-top: 5px;
+}
+.weui-cell__ft{
+  float: right;
+  margin-top: -50rpx;
+  margin-right: 15px;
+}
+.weui-cell__ft_in-access:after{
+  height: 12px;
+  width: 12px;
+}
+.mode{
+  padding: 15px;
+  font-size: 16px;
+}
+.mode_name{
+  float: right;
+  margin-right: 15px;
+}
+.weui-cells__title{
+  font-size: 16px;
+  color: #000;
+  font-weight: 400;
+}
+.weui-textarea{
+  font-size: 14px;
+}
+.pro_detail{
+  display: inline-block;
+  margin-left: 30px;
+  font-weight: 400;
+  font-size: 16px;
+  margin-top: 8px;
+}
+.money{
+  color: #666666;
+}
+.toMoney{
+  color: #ff3300;
+  margin-left: 15px;
+  font-weight: 400;
+}
+.counts_pro{
+  padding: 5px 10px;
+  font-size: 16px;
+}
+.weui-btn{
+  width: 100px;
+  float: right;
+  margin-right: 25px;
+}

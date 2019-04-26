@@ -1,0 +1,30 @@
+<wxs module="dateFr" src="../../utils/filter.wxs"></wxs>
+<view class="page">
+  <scroll-view scroll-y="{{isScroll}}" style='height:{{windowHeight -80}}px'>
+    <view class="page__bd">
+      <view class="weui-panel weui-panel_access">
+        <view class="weui-panel__bd">
+          <view class='pro_name'>优鲜果</view>
+          <view wx:for="{{orderData}}" wx:key="{{item}}" class="weui-media-box weui-media-box_appmsg" bindtap='navigateToDetail' data-item="{{item}}">
+            <view class="weui-media-box__hd weui-media-box__hd_in-appmsg">
+              <image class="weui-media-box__thumb" src="{{item.icon60}}" />
+            </view>
+            <view class="weui-media-box__bd weui-media-box__bd_in-appmsg">
+              <view class="weui-media-box__title">{{item.title1}}</view>
+              <view class="weui-media-box__desc">{{item.intro1}}</view>
+              <view class="price">{{dateFr.getMoney(item.price)}}
+                <text>/斤</text>
+                <view class='count'>
+                  <view class='count_num'>x{{item.num}}</view>
+                </view>
+              </view>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+  <view class='counts_pro'>共计{{count}}件商品<text class='toMoney'>小计：{{dateFr.getMoney(total_price)}}</text><text class='mode_name'>快递 <text class='money'>¥ 10.00</text></text></view>
+  <button bindtap='checkLogistic' class="weui-btn" type="primary">查看物流</button>
+  <button bindtap='confirmRecipt' class="weui-btn" type="warn">确认收货</button>
+  </scroll-view>
+</view>

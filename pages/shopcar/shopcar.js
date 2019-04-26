@@ -261,14 +261,17 @@ Page({
   //结算按钮
   settle_accounts() {
     let list = this.data.carList;
+    let checkedList=[];
     let checked_flag =false;
     for(var i in list){
       if(list[i].checked){
-        checked_flag = true;
+        checked_flag=true;
+        console.log(list[i])
+        checkedList.push(list[i]);
       }
     }
     if(checked_flag){
-      let data = JSON.stringify(list);
+      let data = JSON.stringify(checkedList);
       console.log(data);
       wx.navigateTo({
         url: "/pages/accounts/accounts?account_items=" + data,

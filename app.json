@@ -6,7 +6,8 @@
     "pages/detail/detail",
     "pages/accounts/accounts",
     "pages/buyer/buyer",
-    "pages/newAddr/newAddr"
+    "pages/newAddr/newAddr",
+    "pages/myOrder/myOrder"
   ],
   "window":{
     "backgroundTextStyle":"light",
